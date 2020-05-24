@@ -38,5 +38,9 @@ urlpatterns = [
     path('myprofile/<int:pk>', MyProfileDetailView.as_view()),
 
     path("myprofile/follow/<int:pk>/", views.follow),
+    path("myprofile/unfollow/<int:pk>/", views.unfollow),
+
+    path("mypost/like/<int:pk>/", views.like),
+    path("mypost/unlike/<int:pk>/", views.unlike),
 
 ]

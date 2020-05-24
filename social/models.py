@@ -17,7 +17,7 @@ class MyProfile(models.Model):
     gender = models.CharField(max_length=20, default="male", choices=(("male", "male"), ("female", "female")))
     phone_no = models.CharField(validators=[RegexValidator("^0?[5-9]{1}\d{9}$")], max_length=15, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    pic = models.ImageField(upload_to="images\\", null=True, blank=True)
+    pic = models.ImageField(upload_to="images", null=True, blank=True)
 
     def __str__(self):
         return "%s " % self.user
@@ -28,11 +28,11 @@ class MyProfile(models.Model):
 
 
 class MyPost(models.Model):
-    pic = models.ImageField(upload_to="images\\", null=True, blank=True)
+    pic = models.ImageField(upload_to="images", null=True, blank=True)
     subject = models.CharField(max_length=200)
     msg = models.TextField(null=True, blank=True)
     cr_date = models.DateTimeField(auto_now_add=True)
-    uploaded_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE,null=True,blank=True)
+    uploaded_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.subject
@@ -60,8 +60,8 @@ class PostLike(models.Model):
 
 
 class FollowUser(models.Model):
-    profile = models.ForeignKey(to=MyProfile, on_delete=CASCADE,related_name="profile")
-    followed_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE,related_name="followed_by")
+    profile = models.ForeignKey(to=MyProfile, on_delete=CASCADE, related_name="profile")
+    followed_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE, related_name="followed_by")
 
     def __str__(self):
-        return "%s  %s"%(self.followed_by, self.profile)
+        return "%s is followed by %s" % (self.profile, self.followed_by)
