@@ -1,19 +1,9 @@
 body {
-    backgroung-color: #fcfbd1;
+    backgroung-color: #feecde;
+    font-size:1.2em;
+    background-image: url("/static/images/dark-grey.jpg");
 }
-h1{
-    color: #990000;
-    text-transform: uppercase;
-}
-.kk{
-    color:green;
-}
-#ok{
-    color:yellow;
-}
-h1{
-    color:grey;
-}
+
 #myhead1{
     font-size:70px;
     color: #620000;
@@ -60,5 +50,29 @@ h1{
     text-shadow:2px 2px 2px white;
     font-family: cursive;
     font-weight: bolder;
+}
 
+.navbar-light .navbar-nav .nav-link{
+        color: #400000;
+}
+
+@media(max-width: 766px){
+    .navbar-nav{
+    background-color: #fcfbd1;
+    }
+}
+
+.myfooter{
+     font-size:20px;
+    color: #400000;
+    text-shadow:2px 2px 2px white;
+    font-family: cursive;
+    font-weight: bolder;
+    background-image: url("/static/images/footer.jpg");
+}
+
+.myhead2{
+    color: #400000;
+    text-shadow:2px 2px 2px black;
+    font-family: cursive;
 }

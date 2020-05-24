@@ -32,7 +32,7 @@ class MyPost(models.Model):
     subject = models.CharField(max_length=200)
     msg = models.TextField(null=True, blank=True)
     cr_date = models.DateTimeField(auto_now_add=True)
-    uploaded_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE)
+    uploaded_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE,null=True,blank=True)
 
     def __str__(self):
         return self.subject
@@ -64,4 +64,4 @@ class FollowUser(models.Model):
     followed_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE,related_name="followed_by")
 
     def __str__(self):
-        return self.followed_by
+        return "%s  %s"%(self.followed_by, self.profile)

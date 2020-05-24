@@ -1,5 +1,43 @@
 {% extends "base.html"%}
 {% block content %}
-<h1>Hi I am Contact Page</h1>
+<main class="p-5">
+
+    <div class="row">
+    <div class="col">
+        <h2 class="myhead2">Contact Us</h2>
+<hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <form>
+            <input class="form-control" type="text" name="uname" placeholder="Name"><br>
+            <input class="form-control" type="email" name="uname" placeholder="email"><br>
+            <input class="form-control" type="tel" name="uname" placeholder="Phone No"><br>
+            <textarea class="form-control" placeholder="MSG"></textarea><br>
+            <button class="btn btn-dark btn-block" type="submit">Submit</button>
+        </form>
+    </div>
+        <div class="col-sm-4">
+            <p>
+                <strong>Address::  </strong>B-1102, kitkat road, cadbury area ,Washington DC , pin EK65Z1<br>
+                <strong><span class="fa fa-phone ma-2"></span></strong>999XXXXXXX<br>
+                <strong><span class="fa fa-globe ma-2"></span></strong>http://social@media.com<br>
+            </p>
+
+        </div>
+
+    </div>
+</div>
+<div class="row my-5">
+    <div class="col-sm-8 offset-sm-2">
+        <div class="embed-responsive embed-responsive-4by3">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15130.25945794411!2d73.7688026!3d18.5485557!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2295d231ee729bb8!2s52%20Greenwoods!5e0!3m2!1sen!2sin!4v1590265817757!5m2!1sen!2sin" class="embed-responsive-item" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+    </div>
+</div>
+
+</main>
 {% endblock %}
 

@@ -19,17 +19,24 @@ from django.urls import path
 from social import views
 from django.views.generic import RedirectView
 
-from social.views import ContactView, AboutView, HomeView
+from social.views import ContactView, AboutView, HomeView, MyProfileUpdateView, MyPostCreate, MyPostListView, \
+    MyPostDetailView, MyProfileListView, MyPostDeleteView, MyProfileDetailView
 
 urlpatterns = [
     path('home/', HomeView.as_view()),
     path('about/', AboutView.as_view()),
     path('contact/', ContactView.as_view()),
     # path('mylist/',MyList.as_view()),
-    # path('question/create/', QuestionCreate.as_view(success_url="/college/home/")),
-    # path('notice/<int:pk>', NoticeDetailView.as_view()),
-    # path('notice/', NoticeListView.as_view()),
-    # path('profile/edit/<int:pk>/', ProfileUpdateView.as_view(success_url="/college/home/")),
+    path('mypost/create/', MyPostCreate.as_view(success_url="/social/mypost")),
+    path('mypost/delete/<int:pk>', MyPostDeleteView.as_view(success_url="/social/mypost")),
+    path('mypost/<int:pk>', MyPostDetailView.as_view()),
+    path('mypost/', MyPostListView.as_view()),
+    path('myprofile/edit/<int:pk>/', MyProfileUpdateView.as_view(success_url="/social/home/")),
     path('', RedirectView.as_view(url='home/')),
+
+    path('myprofile/', MyProfileListView.as_view()),
+    path('myprofile/<int:pk>', MyProfileDetailView.as_view()),
+
+    path("myprofile/follow/<int:pk>/", views.follow),
 
 ]
