@@ -1,3 +1,78 @@
 body {
-    backgroung-color: #fcfbd1
+    backgroung-color: #feecde;
+    font-size:1.2em;
+    background-image: url("/static/images/dark-grey.jpg");
+}
+
+#myhead1{
+    font-size:70px;
+    color: #620000;
+    text-align: center;
+    text-shadow:3px 3px 3px block;
+    font-family: cursive;
+    background-color: #fde3bd;
+    border-radius:20px;
+    border-bottom: 2px solid #620000;
+    border-top: 2px solid #620000;
+}
+
+.mydiv{
+    background-color: red;
+    width: 50%;
+}
+@media(max-width:600px;){
+    .mydiv{
+    width:100%;
+    }
+}
+#myheader1{
+    height: 240px;
+}
+
+#headfix{
+    position: absolute;
+    top: 170px;
+    width:100%;
+    z-index:10;
+
+}
+.navbar-brand{
+    font-size:40px;
+    color: #400000;
+    text-shadow:2px 2px 2px white;
+    font-family: cursive;
+    font-weight: bolder;
+}
+
+.navbar{
+    font-size:30px;
+    color: #400000;
+    text-shadow:2px 2px 2px white;
+    font-family: cursive;
+    font-weight: bolder;
+}
+
+.navbar-light .navbar-nav .nav-link{
+        color: #400000;
+}
+
+@media(max-width: 766px){
+    .navbar-nav{
+    background-color: #fcfbd1;
+    }
+}
+
+.myfooter{
+     font-size:20px;
+    color: #400000;
+    text-shadow:2px 2px 2px white;
+    font-family: cursive;
+    font-weight: bolder;
+    background-image: url("/static/images/footer.jpg");
+}
+
+.myhead2{
+    color: #400000;
+    text-shadow:2px 2px 2px black;
+    font-family: cursive;
 }

@@ -25,7 +25,7 @@ SECRET_KEY = '_ke2o-e0!4evgl(d9joludt3c_nnz2ld9q_%=)y382l)t9w3c0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
     'social',
     "crispy_forms",
+    'registration',
 ]
 
 MIDDLEWARE = [

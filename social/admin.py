@@ -12,7 +12,7 @@ class FollowUserAdmin(ModelAdmin):
     list_filter = ["profile", "followed_by"]
 
 
-admin.site.register(FollowUser)
+admin.site.register(FollowUser, FollowUserAdmin)
 
 
 class MyPostAdmin(ModelAdmin):

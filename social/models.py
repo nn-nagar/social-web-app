@@ -17,7 +17,7 @@ class MyProfile(models.Model):
     gender = models.CharField(max_length=20, default="male", choices=(("male", "male"), ("female", "female")))
     phone_no = models.CharField(validators=[RegexValidator("^0?[5-9]{1}\d{9}$")], max_length=15, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    pic = models.ImageField(upload_to="images\\", null=True, blank=True)
+    pic = models.ImageField(upload_to="images", null=True, blank=True)
 
     def __str__(self):
         return "%s " % self.user
@@ -28,11 +28,11 @@ class MyProfile(models.Model):
 
 
 class MyPost(models.Model):
-    pic = models.ImageField(upload_to="images\\", null=True, blank=True)
+    pic = models.ImageField(upload_to="images", null=True, blank=True)
     subject = models.CharField(max_length=200)
     msg = models.TextField(null=True, blank=True)
     cr_date = models.DateTimeField(auto_now_add=True)
-    uploaded_by = models.ForeignKey(to=User, on_delete=CASCADE)
+    uploaded_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.subject
@@ -41,7 +41,7 @@ class MyPost(models.Model):
 class PostComment(models.Model):
     post = models.ForeignKey(to=MyPost, on_delete=CASCADE)
     msg = models.TextField()
-    comment_by = models.ForeignKey(to=User, on_delete=CASCADE)
+    comment_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE)
     cr_date = models.DateTimeField(auto_now_add=True)
     flag = models.CharField(max_length=20, null=True, blank=True,
                             choices=(("racist", "racist"), ("abbusing", "abbusing")))
@@ -52,7 +52,7 @@ class PostComment(models.Model):
 
 class PostLike(models.Model):
     post = models.ForeignKey(to=MyPost, on_delete=CASCADE)
-    liked_by = models.ForeignKey(to=User, on_delete=CASCADE)
+    liked_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE)
     cr_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -60,8 +60,8 @@ class PostLike(models.Model):
 
 
 class FollowUser(models.Model):
-    profile = models.ForeignKey(to=MyProfile, on_delete=CASCADE)
-    followed_by = models.ForeignKey(to=User, on_delete=CASCADE)
+    profile = models.ForeignKey(to=MyProfile, on_delete=CASCADE, related_name="profile")
+    followed_by = models.ForeignKey(to=MyProfile, on_delete=CASCADE, related_name="followed_by")
 
     def __str__(self):
-        return self.followed_by
+        return "%s is followed by %s" % (self.profile, self.followed_by)
